@@ -1,0 +1,27 @@
+<%= form_with(model: message, local: true) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation", class="alert">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% message.errors.full_messages.each do |message| %>
+          <li class="_list"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %><br/>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :messages %><br/>
+    <%= form.text_area :messages, class:"field area" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Envoyez" %>
+  </div>
+<% end %>

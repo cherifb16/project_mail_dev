@@ -1,0 +1,70 @@
+
+<div class="user_index container site _site">
+
+<div class="user_main">
+<% if flash[:notice] %>
+<div class="notice"><%= notice %></div>
+<% end %>
+<% if flash[:alert] %>
+<div class="alert"><%= alert %></div>  
+<% end %>
+<div class="user_card dispo">
+
+<div class="_product2">
+
+
+
+<% if @product.images.attached?  %>
+  <% (0...@product.images.count).each do |product|  %>
+    
+    <div class="img_product">
+        <%= link_to image_tag(@product.banner(product)),@product.images[product]  %>
+    </div>
+
+  <% end %>
+<% else %>
+
+  <img src="https://placehold.jp/30/dd6699/ffffff/300x150.png?text=Please+upload+some+or+an+image(s)+or+this+product+will+not+be+visible+in+the+listing">
+
+<% end %>
+</div>
+<div class="dispo2">
+<p>
+  <strong>prix:</strong>
+  <%= @product.price %> $
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>Propriétaire:</strong>
+  <%= User.find(@product.user_id).pseudo %>
+</p>
+<% if current_user %>
+<%= link_to 'Editer', edit_product_path(@product), class:"_link" %> 
+<%= link_to 'Retour', products_path, class:"_link Back_pos" %>
+<% if @product.images.attached?  %>
+  <% if current_user.product_ids.include?(params[:id].to_i) == true %>
+      <%= link_to 'Archivés',new_archive_path , class:"archive" %>
+  <% end %>
+<% else %>
+  <%= link_to "Produit non listé", edit_product_path(@product.id), class: "danger1", title: "please upload some or an image from the edit section" %>
+<% end %>
+  <% if current_user.product_ids.include?(params[:id].to_i) != true %>
+      <%= link_to 'Contact', new_message_path, class:"_link" %>
+  <% end %>
+<% end %>
+
+<% if !current_user %>
+<%= link_to 'Back', products_path, class:"_link Back_pos" %>
+<%= link_to 'Contact', new_message_path, class:"_link" %>
+<%end%>
+
+
+</div>
+</div>
+</div>
+</div>
+

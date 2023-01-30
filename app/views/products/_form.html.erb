@@ -1,0 +1,33 @@
+
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation", class="alert">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li class="_list"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :prix %><br/>
+    <%= form.number_field :price, placeholder: "prix" %>
+  </div>
+
+  <div class="field prod">
+    <%= form.label :images, class: " img" %><em>(vous pouvez en choisir plusieurs)</em><br/>
+    <%= form.file_field :images, multiple: true, id: "image" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class:"field" %><br/>
+    <%= form.text_area :description, class:"field area", placeholder: "description" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Mettre à jour" %>
+  </div>
+<% end %>

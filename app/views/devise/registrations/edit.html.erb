@@ -1,0 +1,48 @@
+<section class="reg_session">
+  <div class="reg_img"></div>
+  <div class="reg_box">
+    <h2 class="reg_title">MODIFIER L'UTILISATEUR </h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="form">
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email", placeholder: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Actuellement en attente de confirmation pour : <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mot_de_passe %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "mot de passe" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mot_de_passe_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password_confirmation" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Mot_de_passe_actuel %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Mettre à jour" %>
+  </div>
+<% end %>
+</div>
+<h3>Supprimer mon compte</h3>
+
+<p>Malheureux? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr?" }, method: :delete, id: "cancel" %></p>
+
+<%= link_to "Retour", :back %>
+</div>
+</section>

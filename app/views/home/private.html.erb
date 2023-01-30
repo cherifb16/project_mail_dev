@@ -1,0 +1,25 @@
+
+<div class="user_index container private_index">
+    <div >
+    
+    </div>
+    <div class="user_infos">
+        <p class="user_info">
+            <strong>Nom:</strong>
+            <%= @user.pseudo %>
+        </p>
+       
+        <p class="user_info">
+            <strong>Email:</strong>
+            <%= @user.email %>
+        </p>
+        
+        <div class="user_btn">
+            <%= link_to "Editer", edit_user_registration_path, class:"edit"%>
+            <%= link_to "Retour", '/', class:"back"%>
+        </div>
+
+    </div>
+    
+</div>
+

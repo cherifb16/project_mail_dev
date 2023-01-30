@@ -1,0 +1,12 @@
+
+<section class="reg_session">
+  <div class="reg_img"></div>
+  <div class="reg_box">
+<h2 class="reg_title">NOUVEAU MESSAGE</h2>
+
+<%= render 'form', message: @message %>
+
+<%= link_to 'Retour', product_path(session[:product_id]), class:"_link" %>
+
+</div>
+</section>

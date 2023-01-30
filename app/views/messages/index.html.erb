@@ -1,0 +1,40 @@
+
+<div class="_user_index site _site">
+<div class="user_main">
+<% if current_user.messages.count != 0 %>
+<h2 class="reg_title">Messages</h2>
+<% current_user.messages.each do |message| %>
+
+<div class="user_card dispo">
+
+<div class="_product2">
+
+<div class="dispo2">
+<p>
+  <strong>Email:</strong>
+  <%= message.email %>
+</p>
+
+<p>
+  <strong>Messages:</strong>
+  <%= message.messages %>
+</p>
+<p>
+  <strong>reception date:</strong>
+  <%= message.created_at %>
+</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="_bas">
+
+</div>
+<% end %>
+<% else %>
+<div class="absence _bas">Aucun message reçu</div>
+<% end %>
+</div>
+

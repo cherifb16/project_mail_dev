@@ -1,0 +1,54 @@
+
+<div class="_user_index container">
+<% if flash[:notice] %>
+    <div class="notice"><%= notice %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="alert"><%= alert %></div>  
+  <% end %>
+<h1 class="reg_title ">Archive</h1>
+  <div class=" site _site">
+  <% if @archives.count != 0 %>
+    <% @archives.each do |archive| %>
+      <div class="user_main ">
+          <div class="user_card dispo">
+
+          <% product = Product.find(archive.product_id) %>
+            <div class="_product">
+              <% (0...product.images.count).each do |i|  %>
+                <div class="img_product">
+                    <%= image_tag(product.thumbnail(i))  %>
+                </div>
+              <% end %>
+            </div>
+            <div class="dispo2">
+              <p>
+                <strong>Price:</strong>
+                <%= product.price %> $
+              </p>
+
+              <p>
+                <strong>Description:</strong>
+                <%= product.description %>
+              </p>
+              <p>
+                <strong>Owner:</strong>
+                <%= User.find(product.user_id).pseudo %>
+              </p>
+                  <% if current_user %>
+                  <%= link_to 'Back', '/', class:"_link" %> 
+                  <% end %>
+                  <%= link_to 'Unarchived', edit_archive_path(archive.id), class:"_link Back_pos plus" %>
+                  
+            </div>
+          </div>
+      </div>
+    <% end %>
+</div>
+<% else%>
+<div class="absence">No listing</div>
+<% end %>
+</div>
+
+
+

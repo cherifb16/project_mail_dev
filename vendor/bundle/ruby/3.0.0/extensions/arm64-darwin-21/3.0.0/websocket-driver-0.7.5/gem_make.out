@@ -1,0 +1,16 @@
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/Users/cherifisimbi/.rbenv/versions/3.0.1/bin/ruby -I /Users/cherifisimbi/.rbenv/versions/3.0.1/lib/ruby/site_ruby/3.0.0 extconf.rb
+creating Makefile
+
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230126-90005-7egcsu sitelibdir\=./.gem.20230126-90005-7egcsu clean
+
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230126-90005-7egcsu sitelibdir\=./.gem.20230126-90005-7egcsu
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230126-90005-7egcsu sitelibdir\=./.gem.20230126-90005-7egcsu install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20230126-90005-7egcsu

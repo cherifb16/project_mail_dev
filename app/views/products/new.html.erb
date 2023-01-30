@@ -1,0 +1,45 @@
+
+<section class="reg_session">
+  <div class="reg_img"></div>
+  <div class="reg_box">
+<h2 class="reg_title">NOUVEAU PRODUIT</h2>
+
+<%= form_for @product do |form| %>
+
+  <% if @product.errors.any? %>
+    <div id="error_explanation", class="alert">
+      <h2><%= pluralize(@product.errors.count, "error") %> interdit la sauvegarde de ce produit :</h2>
+
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li class="_list"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :prix %><br/>
+    <%= form.number_field :price,  placeholder: "prix" %>
+  </div>
+
+  <div class="field prod">
+    <%= form.label :images, class: " img" %><em>(vous pouvez en choisir plusieurs)</em><br/>
+    <%= form.file_field :images, multiple: true, id: "image" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class:"field" %><br/>
+    <%= form.text_area :description, class:"field area", placeholder: "description" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "créer un produit" %>
+  </div>
+
+<% end %>  
+
+<%= link_to 'Retour', products_path, class:"_link" %>
+
+</div>
+</section>

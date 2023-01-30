@@ -1,0 +1,60 @@
+<div class="_user_index container">
+<h1 class="reg_title ">Tout les produits</h1>
+<div class=" site _site">
+  <% if @products.count != 0  %>
+  <% nbr = @products.count  %>
+    <% @products.each do |product| %>
+      <% if product.images.attached?  %>
+      <div class="user_main ">
+          <div class="user_card dispo">
+          
+
+            <div class="_product">
+              <% (0...product.images.count).each do |i|  %>
+                <div class="img_product">
+                    <%= image_tag(product.thumbnail(i))  %>
+                </div>
+              <% end %>
+            </div>
+            <div class="dispo2">
+              <p>
+                <strong>Prix:</strong>
+                <%= product.price %> $
+              </p>
+
+              <p>
+                <strong>Description:</strong>
+                <%= product.description %>
+              </p>
+              <p>
+                <strong>Propriétaire:</strong>
+                <%= User.find(product.user_id).pseudo %>
+              </p>
+                  <% if current_user %>
+                  <%= link_to 'Editer', edit_product_path(product.id), class:"_link" %> 
+                  <% end %>
+                  <%= link_to 'Retour', '/', class:"_link Back_pos" %>
+                      <td><%= link_to 'Afficher', product_path(product.id), class:"_link" %></td>
+                  
+            </div>
+          </div>
+      </div>
+      <% else%>
+      
+        <div class="absence"><% nbr = nbr-1 %></div>
+      <% end %>
+      <% if nbr == 0 && !current_user%>
+        <div class="absence"> No listing <%= link_to 'Back', '/', class:"_link Back_pos" %></div>
+        <% elsif nbr == 0%>
+        <div class="absence"> No listing </div>
+      <% end %>
+      
+  <% end %>
+</div>
+<% else%>
+<div class="absence">Pas de produit listé</div>
+<% end %>
+</div>
+
+
+

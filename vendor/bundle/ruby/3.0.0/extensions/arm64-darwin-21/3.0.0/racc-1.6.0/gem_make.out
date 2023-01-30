@@ -1,0 +1,18 @@
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+/Users/cherifisimbi/.rbenv/versions/3.0.1/bin/ruby -I /Users/cherifisimbi/.rbenv/versions/3.0.1/lib/ruby/site_ruby/3.0.0 extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230126-90005-qvjjf4 sitelibdir\=./.gem.20230126-90005-qvjjf4 clean
+
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230126-90005-qvjjf4 sitelibdir\=./.gem.20230126-90005-qvjjf4
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/cherifisimbi/workspace/project/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230126-90005-qvjjf4 sitelibdir\=./.gem.20230126-90005-qvjjf4 install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20230126-90005-qvjjf4/racc

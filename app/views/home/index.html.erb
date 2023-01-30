@@ -1,0 +1,108 @@
+
+<% if current_user %>
+<% if flash[:notice] %>
+<div class="notice"><%= notice %></div>
+<% end %>
+<% if flash[:alert] %>
+<div class="alert"><%= alert %></div>  
+<% end %>
+    
+    <div class="_user_index site">
+        
+        
+        <nav class="user_side ">
+            <%= link_to "Tout les produits",products_path, class:" side_link"%>
+            
+            <% if @nbrAR != 0 %>
+
+                <%= link_to "Archive", archives_path, class:" side_link"%>
+
+            <% end %>
+            <%= link_to "Paramètre",home_private_path, class:"profile side_link"%>
+        </nav>
+        <main class="user_main">
+
+        
+
+
+
+        <% if  Product.find(@all2).count != 0 %>
+                <% (0...Product.find(@all2).count).each do |product|  %>
+                    
+                    <div class="user_card">
+                        <p class="">
+                            <strong>Prix:</strong>
+                            <%= Product.find(@all2)[product].price %> $
+                        </p>
+
+                        <p class="">
+                            <strong>Description:</strong>
+                            <%= Product.find(@all2)[product].description %>
+                        </p>
+                        <%= link_to "afficher", product_path(Product.find(@all2)[product].id), class:"messages show" %>
+                        <%= link_to 'supprimer', product_path(Product.find(@all2)[product].id), method: :delete, data: { confirm: 'Are you sure?' } , class:"danger"%>
+                        <% if Product.find(@all2)[product].images.attached? == false  %>
+                            <%= link_to "Produit non listé", edit_product_path(Product.find(@all2)[product].id), class: "danger1", title: "please upload some or an image from the edit section" %>
+                        <% end %>
+                        </div>
+                    </a>
+                <% end %>
+            <% else %>
+                <div class="absence">
+                Pas publication
+                </div>
+            <% end %>
+
+        </main>
+        <aside class="user_aside">
+            <div class="_user_infos">
+                <p class="user_info">
+                    <strong>Nom:</strong>
+                    <%= @user.pseudo %>
+                </p>
+            
+                <p class="user_info">
+                    <strong>Email:</strong>
+                    <%= @user.email %>
+                </p>
+
+                <p class="user_info">
+                    <strong>Message recu:</strong> 
+                    <% if @user.messages.count == 0 %>
+                        pas de message
+                    <%else %>
+                        <%= @user.messages.count %>
+                        
+                    <% end %>
+                </p> 
+
+                    <p class="user_info">
+                        <strong>Archive:</strong> 
+                        <%= @nbrAR %>
+                            
+                    </p> 
+
+            </div>
+        </aside>
+    </div>
+<% else %>
+    <div class="home_index">
+    <div class="home_intro">
+        <div></div>
+        <div class="home_text">
+        <h1>Bienvenue dans mon appart </h1>
+        <p>le site qui vous propose des échantillons de
+        construction<br/> défiant toute concurrence et à moindre coût vous pouvez <br/>
+        visitez maintenant la liste des disponibles ou créez un compte<br/> et offrez votre
+        prestations de service. Visite
+            <%= link_to 'Tous les produits listés', products_path, class:"_link plus" %>
+            </p>
+        </div>
+    </div>
+    <div class="home_sign">
+        <%= link_to "Connexion", new_user_session_path ,class:"home_link sign_in"%>
+        <%= link_to "S'inscrire", new_user_registration_path ,class:"home_link"%>
+    </div>
+    </div>
+
+<% end %>

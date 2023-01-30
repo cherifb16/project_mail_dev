@@ -1,0 +1,185 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+._user_index {
+    background: linear-gradient(45deg, rgb(177, 174, 174), rgb(255, 255, 255));
+    height: 100%;
+
+  }
+body{
+    background: linear-gradient(to right,transparent ,#fff),image_url('maquette-mur-interieur-salon-dans-tons-chauds-canape-cuir-qui-se-trouve-derriere-cuisine-rendu-3d_41470-3753.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    font-family: 'poppins', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar{
+    background: #fff;
+
+}
+%home{
+    display: flex;
+    justify-content: space-between;
+    justify-content: flex-end;
+}
+.home_sign{
+    @extend %home;
+    //width: 50%;
+    position: relative;
+    top: 200px;
+    .home_link{
+        border: 1px solid rgb(99, 96, 96);
+        border-radius: 4px;
+        padding: 20px 100px;
+        margin: 0 25px;
+        &:hover{
+            background: rgb(55, 44, 119);
+            color: rgb(255, 255, 255);
+            transition: all 0.8s;
+        }
+    }
+    .sign_in{
+        margin-left: 20px;
+    }
+    
+}
+.home_intro{
+    display: flex;
+    justify-content: space-between;
+}
+.home_text{
+    margin-right: 280px;
+    margin-top: 150px;
+    text-align: right;
+}
+.danger{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #e62727;
+    margin-top: 25px;
+    &:hover{
+        background-color: #9e0e0e;
+        color: #fff;
+        transition: color 0.5s;
+    }
+}
+.absence{
+    font-size: 50px;
+    color: #9e0e0e;
+    text-align: center;
+    padding-top: 70px;
+    //opacity: 0;
+}
+.plus{
+    color: #9e0e0e;
+}
+.plus1{
+    color: #1d6800;
+}
+.archive{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #706868;
+    margin-top: 25px;
+    //font-size: 1rem;
+    &:hover{
+        background-color: #b1a4a4;
+        color: #fff;
+        transition: color 0.5s;
+    }
+}
+
+.archive1{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #706868;
+    margin-top: 25px;
+    font-size: 1rem;
+    &:hover{
+        background-color: #bb0707;
+        color: #fff;
+        transition: color 0.5s;
+    }
+}
+
+.show1{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #706868;
+    margin-top: 25px;
+    font-size: 1rem;
+    &:hover{
+        background-color: #079e1b;
+        color: #fff;
+        transition: color 0.5s;
+    }
+}
+
+
+.space{
+    padding-right: 30px;
+}
+.warning{
+    font-size: 1.5rem;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.decide{
+    padding-top: 15px;
+}
+.shadow{
+    visibility: hidden;
+}
+.admin{
+    display: flex;
+}
+.danger1{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border:1px solid #e62727;
+    color: #d11616;
+    margin-top: 25px;
+    cursor: pointer;
+    
+}
+
+.boddy{
+    display: flex;
+    flex-direction: column;
+}
+._contenu{
+    flex: 1 0 auto;
+}
+
+footer{
+    flex-shrink: 0;
+    //border-top: 1px dashed #000;
+    width: 100%;
+    //background:rgb(22, 184, 95);
+    //height: 100%;
+}
+.contenu-footer{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+    padding: 50px 0 100px;
+}
+.ordre{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,10 @@
+fr:
+  hello: "bonjour"
+  sevices_html: <h1>Bienvenue dans mon appart </h1>
+        <p>le site qui vous propose des échantillons de
+        contribution<br/> défiant toute concurrence et à moindre coût vous pouvez <br/>
+        visitez maintenant la liste des disponibles ou créez un compte<br/> et offrez votre
+        prestations de service. Visite
+  link:
+    sign_in: "Connexionn" 
+    sign_up: "S'inscriree"

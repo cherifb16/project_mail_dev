@@ -1,0 +1,91 @@
+<section class="reg_session">
+  <div class="reg_img"></div>
+  <div class="reg_box">
+    <h2 class="reg_title">CONNEXION</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form" id="form">
+      <div class="field">
+        <%= f.label :email, class:"label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :mot_de_passe, class:"label" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "mot de passe" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class:"sess_label">
+          <%= f.check_box :remember_me, class:"check" %>
+          <%= f.label :se_souvenir_de_moi, class:" sess_label" %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "connexion", id: "login" %>
+      </div>
+      </div>
+    <% end %>
+
+
+
+
+
+
+
+
+    <div class="adminlink">
+    <div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email",value: "guest@general.com", class: "shadow" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "mot de passe", value: "123456", class: "shadow" %>
+
+          <div class="actions">
+            <%= f.submit "invité général", id: "login" %>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email",value: "guest@admin.com", class: "shadow" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "mot de passe", value: "123456", class: "shadow" %>
+
+          <div class="actions">
+            <%= f.submit "invité administrateur", id: "login" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <%= link_to "home", "/",class:"_link"%>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ennui</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="_container boddy" id="top">
+  <div class="_contenu">
+  <% if current_user %>
+    <nav class="user_nav">
+            <div class="user_link">
+                <%= link_to "Vos produits", '/' ,class:"listing link"%>
+                <%= link_to "Nouveau produit",new_product_path , class:"product link"%>
+                <%= link_to "Messages",messages_path, class:"messages link"%>
+            </div>
+
+            <div class="admin">
+            <div>
+              <% if current_user.admin == true %>
+                <div class="">
+                    <%= link_to "Admin", rails_admin_path, class:"link"%>
+                </div>
+              <% end %>
+            </div>
+            
+            <div class="user_logout">
+                <%= link_to "Se déconnecter",destroy_user_session_path ,method: :delete , class:"logout link"%>
+            </div>
+            </div>
+            
+            
+    </nav>
+   
+  <% end %>
+  <% if !current_user %>
+    <% if flash[:notice] %>
+      <div class="notice"><%= notice %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert"><%= alert %></div>  
+    <% end %>
+  <% end %>
+    <%= yield %>
+   
+    <% if current_user %>
+
+    <footer>
+ 
+      <div class="contenu-footer _user_nav">
+      
+        <div class="blo footer-services">
+            <%= link_to "@myapart",'/' , class:"linked"%>
+            <a href="#top" class="__link">Retour en haut</a>
+            <% if  Archive.all.where(archive: true).count != 0 %>
+              <%= link_to "Archive",archives_path , class:"product __link"%>
+            <% else %>
+              <%= link_to "Archive",'#' , class:"product disabled dis"%>
+            <% end %>
+            
+        
+        </div> 
+
+        <div class="blo footer-services">
+
+            <%= link_to "Tous les produits",products_path, class:" __link"%>
+            <%= link_to "Paramètre",home_private_path , class:" __link"%>
+            <% if  current_user.messages.count != 0 %>
+              <%= link_to "Messages",messages_path, class:" __link"%>
+            <% else %>
+              <%= link_to "Messages",'#' , class:" disabled dis"%>
+            <% end %>
+        
+        </div> 
+
+      </div>  
+
+    </footer>
+
+
+  <% end %>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script>
+      var tl = gsap.timeline({defaults: {duration: 1.8, opacity: 3}});
+      tl.to(".absence",{y: 70, ease: "elastic.out(1,0.1)"});
+    </script>
+  </body>
+</html>

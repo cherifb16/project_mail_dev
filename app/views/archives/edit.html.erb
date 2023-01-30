@@ -1,0 +1,25 @@
+<div class="user_index container site _site">
+<div class="user_main">
+<div class="user_card dispo">
+<div class="_product2">
+<div class="middle">
+<%= form_for @archive do |f| %>
+
+    <%= f.label :"Do you really want to unarchive this article?",class: "plus warning" %>
+    </br>
+    </br>
+    <div class="form-group col-md-8  align-items-center">
+        <button type="submit" class="show1"><%= f.check_box :archive, checked: false, class: "shadow" %>Unarchived</button>
+        <%= link_to 'Back',archives_path ,class:"_link" %>
+    </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
